@@ -7,7 +7,11 @@ exports.config = {
       browser: 'chromium',
     },
     CredentialHelper: {
-      require: './credential_helper.js'
+      require: './credential_helper'
+    },
+    IntrospectHelper: {
+      require: './introspect_helper'
+
     }
   },
   include: {
@@ -35,5 +39,6 @@ exports.config = {
 
   },
   tests: './tests/*.js',
-  name: 'codecept-playwright'
+  name: 'sign-in-canada-bdd',
+  require: ["ts-node/register"]
 }

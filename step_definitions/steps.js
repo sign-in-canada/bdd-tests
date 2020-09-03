@@ -1,9 +1,13 @@
 const { I, SIC } = inject();
 
 
+Given(/^I open the (.*?) page$/, (page) => {
+  I.amOnPage(SIC.locators[page]);
+});
+
 Given(/^I open the url "(.*?)"$/, (page) => {
   I.amOnPage(page);
-  // I.info();
+  I.info();
 });
 
 When('I click on the checkbox {string}', (cb) => {
@@ -11,9 +15,10 @@ When('I click on the checkbox {string}', (cb) => {
   I.click(what);
 });
 
-When('I click on the link {string}', (cb) => {
-  const field = SIC.locators[cb]
+When('I click on the link {string}', (title) => {
+  const field = SIC.locators[title] || title;
   I.click(field);
+  I.info();
 });
 
 Then(/^the url matches "(.*?)"$/, (url) => {
@@ -68,5 +73,10 @@ Then('the element {string} contains the text <testuser>', () => {
 
 Then('the browser error log should be clear', async () => {
   let logs = await I.grabBrowserLogs();
-  logs.forEach(l => console.log(l));
+  return logs.length < 1;
+  // logs.forEach(l => console.log(l));
+});
+
+Then(/I should have the cookie "(.*?)"/, (name) => {
+  I.seeCookie(name);
 });

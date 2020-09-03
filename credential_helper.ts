@@ -1,13 +1,6 @@
-const { Helper } = codeceptjs;
-
-class CredentialHelper extends Helper {
+class CredentialHelper extends codeceptjs.Helper {
   references = {};
 
-  async info() {
-    const { browser } = this.helpers.Playwright;
-
-    console.log(await browser.cookies());
-  }
   generateRandomUsername(ref) {
     this.references[ref] = ['sic', Math.floor(Date.now() / 1000).toString(36), Math.floor(Math.random() * 1e8).toString(36)].join('_');
     return this.references[ref];

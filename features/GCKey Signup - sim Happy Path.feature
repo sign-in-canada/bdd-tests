@@ -5,7 +5,10 @@ Feature: Create CATSLAB - GCKey Sign Up
     I want to sign up to GCKey via CATSLAB
 
     Background:
-        Given I open the url "https://rp1.tbstest.catslab.ca/RPSimulator/home-eng.jsp?_gc_lang=eng"
+        Given I open the RPSimulator page
+        Then I should see "Relying Party Simulator"
+        When I click on the link "English"
+        Then I should see "Welcome to the Relying Party Simulator"
 
     Scenario: Successful create account
 
@@ -13,6 +16,7 @@ Feature: Create CATSLAB - GCKey Sign Up
         And I click on the checkbox "Force Authn"
         When I click on the link "Login"
         Then the url matches "https://rp1.tbstest.catslab.ca/RPSimulator/choose-eng.jsp"
+        And I should have the cookie "JSESSIONID"
 
         ## Uncomment these for live DEV3
         # When I click on the button "DEV 3 - CATSLAB"
