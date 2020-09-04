@@ -14,25 +14,22 @@ Feature: Create CATSLAB - GCKey Sign Up
         When I click on the link "Login"
         Then the url matches "https://rp1.tbstest.catslab.ca/RPSimulator/choose-eng.jsp"
 
-        When I click on the button "DEV 3 - CATSLAB"
+        When I choose the CSP
         Then the element "Sign up with GCKey" is displayed
         # This is the Sign In Canada Acceptance Platform tailored for the ATIP application with the integration of the 2 current Credential Service Providers (GCKey and Sign-in Partner) links to their real Test Environments.
         When I click on the button "Sign up with GCKey"
 
         ## GCKey Welcome Page
-        When I open the url "http://localhost:8080/GCKey%20-%20Sign%20In%20_%20Sign%20Up.html"
         Then I should see "Welcome to GCKey"
 
         ## GCKey Terms and Conditions page
         When I click on the button "Sign Up"
-        # Then the url matches "https://te.clegc-gckey.gc.ca/j/eng/rg?execution=e1s1"
 
         ## GCKey Create Your Username page.
         Then I should see "1 of 4"
 
         When I click on the button "I accept"
         Then I should see "2 of 4"
-        ## Then the url matches "https://te.clegc-gckey.gc.ca/j/eng/rg?execution=e1s2"
 
         When I have a valid random GCKey username <testuser>
         And I set the inputfield "Create Your Username" to <testuser>
