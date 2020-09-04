@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "bdd tests for sign in canada",
   "scripts": {
-    "sim": "codeceptjs run --steps --grep @sim",
-    "live": "codeceptjs run --steps --grep @live",
-    "sim-dev3": "http-server ./dev3/"
+    "test": "codeceptjs run --steps"
   },
   "keywords": [],
   "author": "vid",

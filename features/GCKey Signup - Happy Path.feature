@@ -57,7 +57,7 @@ Feature: Create CATSLAB - GCKey Sign Up
         Then I should see "GCKey Sign Up Complete"
 
         When I click on the button "Sign Up Complete Continue"
-        Then the browser error log should be clear
+#        Then the browser error log should be clear
 # Then I should receive a CATS 2.0 cookie
 
 
