@@ -19,7 +19,7 @@ steps:
   displayName: 'npm install'
 
 - script: |
-    npm run sim-dev3
+    npm run sim-dev3 &
   displayName: 'sim dev3'
 
 - script: |
