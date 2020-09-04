@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "bdd tests for sign in canada",
   "scripts": {
-    "test": "codeceptjs run --steps"
+    "test": "codeceptjs run --steps",
+    "ci": "codeceptjs run --steps -o '{ \"helpers\": {\"Playwright\": {\"show\": false}}}'"
   },
   "keywords": [],
   "author": "vid",
