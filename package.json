@@ -4,7 +4,8 @@
   "description": "bdd tests for sign in canada",
   "scripts": {
     "test": "codeceptjs run --steps",
-    "ci": "codeceptjs run --steps -o '{ \"helpers\": {\"Playwright\": {\"show\": false}}}'"
+    "ci": "codeceptjs run --steps -o '{ \"helpers\": {\"Playwright\": {\"show\": false}}}'",
+    "sim-dev3": "http-server dev3"
   },
   "keywords": [],
   "author": "vid",
