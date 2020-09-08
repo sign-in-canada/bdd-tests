@@ -19,5 +19,5 @@ Use other CSP buttons than DEV3 with an environmental variable, for example, `CS
 
 ## Development
 
-This is the proof of concept, going forward will require adapting to a declaractive style via Page Object Models. 
+This is the proof of concept, going forward will require adapting to a declarative style via Page Object Models. 
 For now, everything is implicit, and locators are in pages/SIC.
