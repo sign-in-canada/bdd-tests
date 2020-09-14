@@ -13,10 +13,9 @@
   "devDependencies": {
     "codeceptjs": "^3.0.0-beta.4",
     "http-server": "^0.12.3",
-    "playwright": "^1.3.0"
+    "playwright": "^1.4.0"
   },
   "dependencies": {
-    "@codeceptjs/ui": "github:codeceptjs/ui",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   }
