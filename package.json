@@ -4,6 +4,7 @@
   "description": "bdd tests for sign in canada",
   "scripts": {
     "test": "codeceptjs run --steps",
+    "test-local": "CSP_HOST=_local codeceptjs run --steps",
     "ci": "codeceptjs run --steps -o '{ \"helpers\": {\"Playwright\": {\"show\": false}}}'",
     "sim-dev3": "http-server dev3"
   },

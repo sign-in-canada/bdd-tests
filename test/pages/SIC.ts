@@ -2,16 +2,17 @@
 
 module.exports = {
   locators: {
-    'RPSimulator': 'https://rp1.tbstest.catslab.ca/RPSimulator/',
+    RPSimulator: 'https://rp1.tbstest.catslab.ca/RPSimulator/home-eng.jsp?_gc_lang=eng',
+    RPSimulatorEnChooser: "https://rp1.tbstest.catslab.ca/RPSimulator/choose-eng.jsp",
     'Level 2': '//*[@id="cn-left-col-inner"]/section/div/nav/form/section[1]/ul/li[2]/input',
     'Force Authn': '//*[@id="cn-left-col-inner"]/section/div/nav/form/section[2]/ul/li[1]/input',
-    'Login': '//*[@id="cn-left-col-inner"]/section/div/nav/form/section[3]/ul/li/a',
-    CSP: process.env.CSP_HOST || 'DEV 3 - CATSLAB',
+    Login: '//*[@id="cn-left-col-inner"]/section/div/nav/form/section[3]/ul/li/a',
+    GCKeyCSP: process.env.CSP_HOST || 'Sign In Canada - QA',
     'Sign up with GCKey': '//*[@id="loginForm:loginButton3"]',
     'Sign Up': { xpath: '/html/body/div[1]/main/div[2]/div/div/div/div/div/div[3]/div/p[3]/a' },
     'I accept': '//*[@id="Accept"]',
     'Create Your Username': '//*[@id="userID"]',
-    'Continue': '//*[@id="button"]',
+    Continue: '//*[@id="button"]',
     'Create Your Password': '//*[@id="password"]',
     'Confirm Your Password': '//*[@id="confirmPassword"]',
     'Select a Recovery Question': '#recoveryQuestion',

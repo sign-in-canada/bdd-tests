@@ -7,24 +7,20 @@ exports.config = {
       browser: 'chromium',
     },
     CredentialHelper: {
-      require: './credential_helper'
+      require: './test/helpers/credential_helper'
     },
-    IntrospectHelper: {
-      require: './introspect_helper'
-
-    }
   },
   include: {
-    I: './steps_file.js',
-    SIC: './pages/SIC.ts'
+    I: './test/steps_file',
+    SIC: './test/pages/SIC'
   },
   mocha: {},
   bootstrap: null,
   teardown: null,
   hooks: [],
   gherkin: {
-    features: './features/*.feature',
-    steps: ['./step_definitions/steps.ts']
+    features: './test/features/*.feature',
+    steps: ['./test/step_definitions/steps.ts']
   },
   plugins: {
     // screenshotOnFail: {

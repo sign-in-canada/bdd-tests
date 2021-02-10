@@ -5,6 +5,10 @@ Given(/^I open the (.*?) page$/, (page) => {
   I.amOnPage(SIC.locators[page]);
 });
 
+Given(/^I open the Relying Party simulator$/, (page) => {
+  I.amOnPage(SIC.locators.RPSimulator);
+});
+
 Given(/^I open the url "(.*?)"$/, async (page) => {
   I.amOnPage(page);
 });
@@ -19,17 +23,23 @@ When('I click on the link {string}', (title) => {
   I.click(field);
 });
 
+Then(/^the url matches the RP simulator English chooser$/, (url) => {
+  I.amOnPage(SIC.locators.RPSimulatorEnChooser);
+});
+
 Then(/^the url matches "(.*?)"$/, (url) => {
   I.amOnPage(url);
 });
 
-When('I choose the CSP', () => {
+When('I choose the GCKey CSP', () => {
   // FIXME should be in page object
-  const { CSP } = SIC.locators;
-  if (CSP === '_local') {
+  const { GCKeyCSP } = SIC.locators;
+  if (GCKeyCSP === '_local') {
     return I.amOnPage("http://localhost:8080/Sign%20In.html");
   }
-  return I.click(CSP)
+  console.log(GCKeyCSP);
+  
+  return I.click(GCKeyCSP)
 });
 
 When('I click on the button {string}', (what) => {

@@ -1,4 +1,7 @@
-class CredentialHelper extends codeceptjs.Helper {
+
+const Helper = require('@codeceptjs/helper');
+
+class CredentialHelper extends Helper {
   references = {};
 
   generateRandomUsername(ref) {
@@ -39,3 +42,4 @@ class CredentialHelper extends codeceptjs.Helper {
 }
 
 module.exports = CredentialHelper;
+export {};

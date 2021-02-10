@@ -2,21 +2,20 @@
 @live
 Feature: Create CATSLAB - GCKey Sign Up
     As a user
-    I want to sign up to GCKey via CATSLAB
+    I want to sign up to GCKey via the Relying Party simulator
 
     Background:
-        Given I open the url "https://rp1.tbstest.catslab.ca/RPSimulator/home-eng.jsp?_gc_lang=eng"
+        Given I open the Relying Party simulator
 
     Scenario: Successful create account
 
         When I click on the checkbox "Level 2"
         And I click on the checkbox "Force Authn"
         When I click on the link "Login"
-        Then the url matches "https://rp1.tbstest.catslab.ca/RPSimulator/choose-eng.jsp"
+        Then the url matches the RP simulator English chooser
 
-        When I choose the CSP
+        When I choose the GCKey CSP
         Then the element "Sign up with GCKey" is displayed
-        # This is the Sign In Canada Acceptance Platform tailored for the ATIP application with the integration of the 2 current Credential Service Providers (GCKey and Sign-in Partner) links to their real Test Environments.
         When I click on the button "Sign up with GCKey"
 
         ## GCKey Welcome Page
