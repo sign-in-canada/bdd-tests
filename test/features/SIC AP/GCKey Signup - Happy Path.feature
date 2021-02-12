@@ -1,18 +1,18 @@
 
-@live
-Feature: Create CATSLAB - GCKey Sign Up
+@live @signup @mocked
+Feature: CATSLAB - GCKey Sign Up
     As a user
     I want to sign up to GCKey via the Relying Party simulator
 
     Background:
-        Given I open the Relying Party simulator
+        Given I open the RP1 page
 
     Scenario: Successful create account
 
         When I click on the checkbox "Level 2"
         And I click on the checkbox "Force Authn"
         When I click on the link "Login"
-        Then the url matches the RP simulator English chooser
+        Then I should be on the RP simulator English chooser page
 
         When I choose the GCKey CSP
         Then the element "Sign up with GCKey" is displayed
@@ -58,10 +58,4 @@ Feature: Create CATSLAB - GCKey Sign Up
         When I click on the button "Sign Up Complete Continue"
 #        Then the browser error log should be clear
 # Then I should receive a CATS 2.0 cookie
-
-
-
-
-
-
 

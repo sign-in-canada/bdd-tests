@@ -1,5 +1,6 @@
 exports.config = {
   output: './output',
+  timeout: 50000,
   helpers: {
     Playwright: {
       url: 'http://localhost',
@@ -19,7 +20,7 @@ exports.config = {
   teardown: null,
   hooks: [],
   gherkin: {
-    features: './test/features/*.feature',
+    features: './test/features/**/*.feature',
     steps: ['./test/step_definitions/steps.ts']
   },
   plugins: {

@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 const Helper = require('@codeceptjs/helper');
 
 class CredentialHelper extends Helper {
@@ -14,9 +14,16 @@ class CredentialHelper extends Helper {
     return this.references[ref];
   }
 
-  getRandom(name) {
+  getReference(name) {
     const val = this.references[name];
     return val;
+  }
+
+  getEnv(name) {
+    const envName = name.toUpperCase().replaceAll(' ', '_');
+    const val = process.env[envName];
+    this.references[name] = val;
+    return {val, what: envName};
   }
 
 

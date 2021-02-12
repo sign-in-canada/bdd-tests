@@ -1,58 +1,45 @@
 const { I, SIC } = inject();
-
+const assert = require("assert");
 
 Given(/^I open the (.*?) page$/, (page) => {
-  I.amOnPage(SIC.locators[page]);
+  I.amOnPage(SIC.locate(page));
 });
 
-Given(/^I open the Relying Party simulator$/, (page) => {
-  I.amOnPage(SIC.locators.RPSimulator);
-});
-
-Given(/^I open the url "(.*?)"$/, async (page) => {
-  I.amOnPage(page);
-});
-
-When('I click on the checkbox {string}', (cb) => {
-  const what = SIC.locators[cb]
+When(/I click on the (link|checkbox|button) "(.*?)"/, (type, cb) => {
+  const what = SIC.locate(cb);
   I.click(what);
 });
 
-When('I click on the link {string}', (title) => {
-  const field = SIC.locators[title] || title;
-  I.click(field);
+Then(/^I should be on the (.*?) page$/, (page) => {
+  I.amOnPage(SIC.locate(page));
 });
 
-Then(/^the url matches the RP simulator English chooser$/, (url) => {
-  I.amOnPage(SIC.locators.RPSimulatorEnChooser);
-});
-
-Then(/^the url matches "(.*?)"$/, (url) => {
-  I.amOnPage(url);
-});
-
-When('I choose the GCKey CSP', () => {
-  // FIXME should be in page object
-  const { GCKeyCSP } = SIC.locators;
-  if (GCKeyCSP === '_local') {
-    return I.amOnPage("http://localhost:8080/Sign%20In.html");
-  }
-  console.log(GCKeyCSP);
+When("I choose the GCKey CSP", () => {
+  const GCKeyCSP = SIC.locate("GCKeyCSP");
   
-  return I.click(GCKeyCSP)
+  if (GCKeyCSP === "_local") {
+  const local = "http://localhost:8080/Sign%20In.html";
+    return I.amOnPage(local);
+  }
+
+  return I.click(GCKeyCSP);
 });
 
-When('I click on the button {string}', (what) => {
-  const field = SIC.locators[what]
-  I.click(field);
-});
-
-Then('the element {string} is displayed', (what) => {
+Then("the element {string} is displayed", (what) => {
   I.see(what);
 });
 
-Then(/^the url contains "(.*?)"$/, (what) => {
+Then(/^the url should contain "?(.*?)"?$/, (what) => {
   I.seeInCurrentUrl(what);
+});
+
+When("I press the back button", () => {
+  I.usePlaywrightTo(
+    "go back",
+    async ({ browser, context, page }) => {
+      await page.goBack({});
+    }
+  );
 });
 
 Then(/^I should see "(.*?)"/, (what) => {
@@ -60,7 +47,15 @@ Then(/^I should see "(.*?)"/, (what) => {
 });
 
 Then(/^I pause for (.*?)s/, (seconds) => {
-  I.wait(seconds)
+  I.wait(seconds);
+});
+
+When(/^I have a saved (username|password) <(.*?)>/, async (type, what) => {
+  const { envName, val } = await I.getEnv(what);
+
+  if (val === undefined) {
+    assert.fail(`no such saved ${what} ${envName}`);
+  }
 });
 
 When(/^I have a valid random GCKey username <(.*?)>/, (what) => {
@@ -72,23 +67,28 @@ When(/^I have a valid random GCKey password <(.*?)>/, (name) => {
 });
 
 When(/^I set the inputfield "(.*?)" to <(.*?)>/, async (field, name) => {
-  const val = '' + await I.getRandom(name);
-  I.fillField(SIC.locators[field], val);
+  const val = "" + (await I.getReference(name));
+  I.click(SIC.locate(field));
+  I.type(val);
+  // I.fillField(SIC.locate(field), val);
 });
 
-When('I select the option with the text {string} for the element {string}', (element, text) => {
-  I.selectOption(SIC.locators[text], element);
+When(
+  "I select the option with the text {string} for the element {string}",
+  (element, text) => {
+    I.selectOption(SIC.locate(text), element);
+  }
+);
+
+When("I set the inputfield {string} to {string}", (field, what) => {
+  I.fillField(SIC.locate(field), what);
 });
 
-When('I set the inputfield {string} to {string}', (field, what) => {
-  I.fillField(SIC.locators[field], what);
-});
-
-Then('the element {string} contains the text <testuser>', () => {
+Then("the element {string} contains the text <testuser>", () => {
   pause();
 });
 
-Then('the browser error log should be clear', async () => {
+Then("the browser error log should be clear", async () => {
   // WIP
   let logs = await I.grabBrowserLogs();
   return logs.length < 1;
