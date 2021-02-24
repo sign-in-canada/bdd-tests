@@ -1,5 +1,5 @@
 
-@live @saved  @GCKey @login
+@auth @saved  @GCKey @login
 Feature: CATSLAB - GCKey Login
     As a user
     I want to log in to GCKey via the Relying Party simulator
@@ -7,7 +7,7 @@ Feature: CATSLAB - GCKey Login
     Background:
         Given I have a saved username <gckey user>
         And I have a saved password <gckey password>
-        And I open the RP1 page
+        And I open the Relying Party simulator page
 
     Scenario: Successful create account
         When I click on the checkbox "Level 2"

@@ -1,4 +1,4 @@
-@live @saved @powerapps
+@auth @saved @powerapps
 
 Feature: CATSLAB - GCKey Login
     Background:
@@ -28,10 +28,3 @@ Feature: CATSLAB - GCKey Login
         Then I should be on the PowerApps page
         And the url should contain "fr-CA"
 
-    Scenario: Back button
-        When I click on the link "Sign in"
-        Then I should be on the QA chooser page
-        Then I should see "Sign In Canada"
-
-        When I press the back button
-        Then I should be on the PowerApps page
