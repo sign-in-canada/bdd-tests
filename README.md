@@ -17,7 +17,15 @@ Use other CSP buttons than DEV3 with an environmental variable, for example, `CS
 1. In a cli, run `npm run sim-dev3`
 2. In another CLI, run `CSP_HOST="_local" npm run test`
 
-## Development
+## Login tests
 
-This is the proof of concept, going forward will require adapting to a declarative style via Page Object Models. 
-For now, everything is implicit, and locators are in pages/SIC.
+create a `.env` file with the appropriate credentials;
+
+```
+GCKEY_USER=testuser1
+GCKEY_PASSWORD=<password1>
+GCKEY_USER_2=testuser2
+GCKEY_PASSWORD_2=<password2>
+```
+
+
