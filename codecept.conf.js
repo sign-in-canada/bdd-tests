@@ -24,9 +24,9 @@ exports.config = {
     steps: ['./test/step_definitions/steps.ts']
   },
   plugins: {
-    // screenshotOnFail: {
-    //   enabled: true
-    // },
+    screenshotOnFail: {
+      enabled: true
+    },
     retryFailedStep: {
       enabled: true
     },

@@ -1,7 +1,9 @@
 const { I, SIC } = inject();
 const assert = require("assert");
+export {};
 
 Given(/^I open the (.*?) page$/, (page) => {
+  session('test', {})
   I.amOnPage(SIC.locate(page));
 });
 
@@ -97,4 +99,8 @@ Then("the browser error log should be clear", async () => {
 
 Then(/I should have the cookie "(.*?)"/, (name) => {
   I.seeCookie(name);
+});
+
+When('I open a new tab', () => {
+  I.openNewTab();
 });

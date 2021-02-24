@@ -5,9 +5,9 @@ Feature: CATSLAB - GCKey Sign Up
     I want to sign up to GCKey via the Relying Party simulator
 
     Background:
-        Given I open the RP1 page
+        Given I open the Relying Party simulator page
 
-    Scenario: Successful create account
+    Scenario: Successful create credentials
 
         When I click on the checkbox "Level 2"
         And I click on the checkbox "Force Authn"

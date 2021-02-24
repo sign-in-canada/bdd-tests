@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 const { Workers, event } = require("codeceptjs");
-const assert = require("assert");
+const { devices } = require("playwright");
+
+// const assert = require("assert");
 
 const workerConfig = {
   testConfig: "./codecept.conf.js",
@@ -10,25 +12,40 @@ const workerConfig = {
 // don't initialize workers in constructor
 const workers = new Workers(null, workerConfig);
 // split tests by suites in 2 groups
-const testGroups = workers.createGroupsOfSuites(2);
+const testGroups = workers.createGroupsOfSuites(1);
 
-const browsers = ["firefox", "chromium"];
+const firefox = { browser: "firefox" };
+const chromium = { browser: "chromium" };
+const ublockPath = require('path').join(__dirname, 'extensions/ublock-origin/1.33.2_45');
+console.log(ublockPath);
 
-const configs = browsers.map((browser) => {
+// https://github.com/microsoft/playwright/blob/17e953c2d8bd19ace20059ffaaa85f3f23cfb19d/src/server/deviceDescriptors.js
+const browsers = [
+  firefox,
+  chromium,
+  { ...chromium, emulate: devices["iPhone 6"] },
+  { ...chromium, emulate: devices["iPad (gen 7) landscape"] },
+  { ...chromium, emulate: devices["iPad (gen 7)"] },
+  { ...chromium, emulate: devices["Pixel 2)"] },
+  // FIXME
+  // { ...chromium, args: [`--disable-extensions-except=${ublockPath}`, `--load-extension=${ublockPath}`] },
+];
+
+const configs = browsers.map((config) => {
   return {
     helpers: {
-      Playwright: { browser },
+      Playwright: { ...config },
     },
     plugins: {
-        pauseOnFail: {
-            enabled: false
-        }
-    }
+      pauseOnFail: {
+        enabled: false,
+      },
+    },
   };
 });
 
 for (const config of configs) {
-  for (group of testGroups) {
+  for (const group of testGroups) {
     const worker = workers.spawn();
     worker.addTests(group);
     worker.addConfig(config);
@@ -36,12 +53,12 @@ for (const config of configs) {
 }
 
 workers.on(event.suite.before, (suite) => {
-  console.log("suite : ", suite);
-  assert.fail();
+  console.log("suite : ", suite.title);
+  // assert.fail();
 });
 
 workers.on(event.test.before, (test) => {
-  console.log("test : ", test);
+  console.log("test : ", test.title);
 });
 
 workers.on(event.test.failed, (failedTest) => {
