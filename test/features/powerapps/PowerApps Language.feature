@@ -12,19 +12,15 @@ Feature: CATSLAB - GCKey Login
         And I click on the link "Français"
         Then the url should contain "fr-CA"
         And I should see "Se connecter"
-
         When I click on the link "Se connecter"
-        Then I should see "Se connecter avec un compte externe"
-
-        When I click on the button "Sign In Canada - QA"
         Then I should see "Authenti-Canada"
-
         When I click on the button "Ouvrez une séance au moyen de votre cléGC"
         Then I should see "Bienvenue au service CléGC"
-
         When I set the inputfield "Nom d'utilisateur" to <gckey user>
         And I set the inputfield "Mot de passe" to <gckey password>
         And I click on the button "Se connecter"
+        And the element "Continue" is displayed
+        And I click on the button "Continue"
         Then I should be on the PowerApps page
         And the url should contain "fr-CA"
 

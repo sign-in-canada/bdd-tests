@@ -12,18 +12,18 @@ When(/I click on the (link|checkbox|button) "(.*?)"/, (type, cb) => {
 });
 
 Then(/^I should be on the (.*?) page$/, (page) => {
-  I.amOnPage(SIC.locate(page));
+  I.seeInCurrentUrl(SIC.locate(page));
 });
 
-When("I choose the GCKey CSP", () => {
-  const GCKeyCSP = SIC.locate("GCKeyCSP");
-  
-  if (GCKeyCSP === "_local") {
+When(/^I choose the (.*?) CSP$/, (csp) => {
+  const myCSP = SIC.locate(csp);
+
+  if (myCSP === "_local") {
   const local = "http://localhost:8080/Sign%20In.html";
     return I.amOnPage(local);
   }
 
-  return I.click(GCKeyCSP);
+  return I.click(myCSP);
 });
 
 Then("the element {string} is displayed", (what) => {
@@ -68,10 +68,8 @@ When(/^I have a valid random GCKey password <(.*?)>/, (name) => {
 });
 
 When(/^I set the inputfield "(.*?)" to <(.*?)>/, async (field, name) => {
-  const val = "" + (await I.getReference(name));
-  I.click(SIC.locate(field));
-  I.type(val);
-  // I.fillField(SIC.locate(field), val);
+  await I.click(SIC.locate(field));
+  await I.type(await I.getReference(name));
 });
 
 When(
@@ -103,3 +101,9 @@ Then(/I should have the cookie "(.*?)"/, (name) => {
 When('I open a new tab', () => {
   I.openNewTab();
 });
+
+//Then('I do a pause', () => {
+//  pause();
+//});
+
+
