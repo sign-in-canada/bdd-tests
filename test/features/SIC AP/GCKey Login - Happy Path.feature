@@ -1,5 +1,5 @@
 
-@auth @saved @GCKey @login @nosso
+@auth @saved @GCKey @login @no-sso
 Feature: CATSLAB - GCKey Login
     As a user
     I want to log in to GCKey via the Relying Party simulator
