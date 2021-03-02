@@ -1,5 +1,5 @@
 
-@auth @CBS @login @nosso
+@auth @CBS @login @no-sso
 Feature: CATSLAB - CBS Login
     As a user
     I want to log in to CBS via the Relying Party simulator
