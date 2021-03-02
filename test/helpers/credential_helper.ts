@@ -20,7 +20,7 @@ class CredentialHelper extends Helper {
   }
 
   getEnv(name) {
-    const envName = name.toUpperCase().replaceAll(' ', '_');
+    const envName = name.toString().toUpperCase().replace(/ /g,"_");
     const val = process.env[envName];
     this.references[name] = val;
     return {val, what: envName};

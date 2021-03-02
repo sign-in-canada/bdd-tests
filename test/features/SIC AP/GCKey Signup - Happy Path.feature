@@ -6,15 +6,16 @@ Feature: CATSLAB - GCKey Sign Up
 
     Background:
         Given I open the Relying Party simulator page
+        And I click on the button "English"
 
     Scenario: Successful create credentials
 
         When I click on the checkbox "Level 2"
         And I click on the checkbox "Force Authn"
-        When I click on the link "Login"
+        And I click on the link "Login"
         Then I should be on the RP simulator English chooser page
 
-        When I choose the GCKey CSP
+        When I choose the SIC CSP
         Then the element "Sign up with GCKey" is displayed
         When I click on the button "Sign up with GCKey"
 
@@ -32,7 +33,7 @@ Feature: CATSLAB - GCKey Sign Up
 
         When I have a valid random GCKey username <testuser>
         And I set the inputfield "Create Your Username" to <testuser>
-        And I click on the button "Continue"
+        And I click on the button "Continue signup"
         And I pause for 1000ms
         Then I should see "3 of 4"
 
@@ -41,7 +42,7 @@ Feature: CATSLAB - GCKey Sign Up
         And I set the inputfield "Create Your Password" to <testpassword>
         And I set the inputfield "Confirm Your Password" to <testpassword>
         And I pause for 1000ms
-        And I click on the button "Continue"
+        And I click on the button "Continue signup"
         Then I should see "4 of 4"
 
         ## GCKey Create Your Recovery Questions, Answers and Hints page
@@ -52,7 +53,7 @@ Feature: CATSLAB - GCKey Sign Up
         And I set the inputfield "My Memorable Person Hint" to "dogsRpeople"
         And I set the inputfield "My Memorable Date" to "2000-01-01"
         And I set the inputfield "My Memorable Date Hint" to "Fido Day"
-        And I click on the button "Continue"
+        And I click on the button "Continue signup"
         Then I should see "GCKey Sign Up Complete"
 
         When I click on the button "Sign Up Complete Continue"
