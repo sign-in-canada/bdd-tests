@@ -3,7 +3,6 @@ const assert = require("assert");
 export {};
 
 Given(/^I open the (.*?) page$/, (page) => {
-  session('test', {})
   I.amOnPage(SIC.locate(page));
 });
 
