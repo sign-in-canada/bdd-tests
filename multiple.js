@@ -25,10 +25,12 @@ const browsers = [
   chromium,
   { ...chromium, emulate: devices["iPhone 6"] },
   { ...chromium, emulate: devices["iPad (gen 7) landscape"] },
-  { ...chromium, emulate: devices["iPad (gen 7)"] },
-  { ...chromium, emulate: devices["Pixel 2)"] },
+  //{ ...chromium, emulate: devices["iPad (gen 7)"] },
+  { ...chromium, emulate: devices["Pixel 2"] },
   // FIXME
   // { ...chromium, args: [`--disable-extensions-except=${ublockPath}`, `--load-extension=${ublockPath}`] },
+  //Extensions in Chrome / Chromium currently only work in non-headless mode
+  { ...chromium, chromium: { headless: false, args: [`--disable-extensions-except=${ublockPath}`, `--load-extension=${ublockPath}`] } }
 ];
 
 const configs = browsers.map((config) => {
