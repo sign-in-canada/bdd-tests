@@ -4,6 +4,7 @@
   "description": "bdd tests for sign in canada",
   "scripts": {
     "test": "codeceptjs run --steps",
+    "test-junit": "codeceptjs run --reporter mocha-junit-reporter",
     "test-local": "CSP_HOST=_local codeceptjs run --steps",
     "ci": "codeceptjs run --steps -o '{ \"helpers\": {\"Playwright\": {\"show\": false}}}'",
     "sim-dev3": "http-server dev3"
@@ -18,6 +19,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "mocha-junit-reporter": "^1.23.1",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   }

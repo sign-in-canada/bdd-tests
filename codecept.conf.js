@@ -15,7 +15,11 @@ exports.config = {
     I: './test/steps_file',
     SIC: './test/pages/SIC'
   },
-  mocha: {},
+  mocha: {
+    reporterOptions: {
+        mochaFile: "output/test-results.xml"
+    }
+  },
   bootstrap: null,
   teardown: null,
   hooks: [],
