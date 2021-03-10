@@ -1,13 +1,13 @@
-@saved @powerapps
+@saved @powerapps @language @auth
 
-Feature: CATSLAB - GCKey Login @noauth
+Feature: CATSLAB - GCKey Login
     Background:
         Given I have a saved username <gckey user>
         And I have a saved password <gckey password>
         And I open the PowerApps page
         Then the url should contain "en-CA"
 
-    Scenario: Keeps French language @language @auth
+    Scenario: Keeps French language 
         When I click on the link "English"
         And I click on the link "Français"
         Then the url should contain "fr-CA"
