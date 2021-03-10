@@ -24,7 +24,7 @@ steps:
 
 - script: |
     #CSP_HOST=_local npm run ci -- --grep @noauth
-    npm run test-junit -- --grep @noauth
+    CI=true npm run test-junit -- --grep @noauth
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
