@@ -23,10 +23,14 @@ steps:
 #  displayName: 'sim dev3'
 
 - script: |
-    CSP_HOST=_local npm run ci -- --grep @noauth
+    #CSP_HOST=_local npm run ci -- --grep @noauth
+    npm run test-junit -- --grep @noauth
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: JUnit
     testResultsFiles: output/test-results.xml
+
+- script: |
+   ls output
