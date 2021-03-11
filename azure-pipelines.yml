@@ -5,7 +5,7 @@ name: $(Build.DefinitionName).$(BuildID).$(Rev:.rr)
 trigger:
 - main
 
-pool:
+pool: 
   vmImage: 'ubuntu-latest'
 
 steps:
