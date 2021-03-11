@@ -5,7 +5,8 @@ name: $(Build.DefinitionName).$(BuildID).$(Rev:.rr)
 trigger:
 - main
 
-pool: 
+pool:
+  name: 'TBS Linux Self Hosted'
   vmImage: 'ubuntu-latest'
 
 steps:
