@@ -10,6 +10,7 @@ const locators = {
   'RP simulator response': 'https://rp1.tbstest.catslab.ca/RPSimulator/response',
   'RP simulator 2 response': 'https://rp2.tbstest.catslab.ca/RPSimulator/response',
   'QA chooser': 'https://qa-auth.id.alpha.canada.ca/oxauth/en/select.htm',
+  'Dev1 client': 'https://dev1-auth.id.alpha.canada.ca/oxauth/authorize.htm?scope=openid&response_type=code&redirect_uri=https%3A%2F%2Fwww.canada.ca%2Fen.html&client_id=9e2f0e68-e9b6-40bf-bc23-e5e1f51a3ce6',
   // end of pages
   'Level 2': '//*[@id="cn-left-col-inner"]/section/div/nav/form/section[1]/ul/li[2]/input',
   'Force Authn': '//*[@id="cn-left-col-inner"]/section/div/nav/form/section[2]/ul/li[1]/input',
