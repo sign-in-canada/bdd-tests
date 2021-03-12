@@ -1,4 +1,4 @@
-@saved @auth @unit @GCKey
+@saved @auth @units @GCKey
 
 Feature: CATSLAB - GCKey Login
     Background:
