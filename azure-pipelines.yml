@@ -6,8 +6,8 @@ trigger:
 - main
 
 pool:
-  name: 'Azure Pipelines'
-  vmImage: 'ubuntu-latest'
+  name: 'Hosted VS2017'
+  vmImage: 'windows-latest'
 
 steps:
 - task: NodeTool@0
@@ -26,7 +26,7 @@ steps:
 - script: |
     #CSP_HOST=_local npm run ci -- --grep @noauth
     #CI=true npm run test-junit -- --grep @noauth
-    CI=true npm run test -- --grep "(?=.*@saml)(?=.*@logout)"
+    npm run test -- --grep "(?=.*@saml)(?=.*@logout)"
 
   displayName: 'Run tests'
 
