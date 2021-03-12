@@ -2,9 +2,9 @@
 
 Feature: CATSLAB - CBS Login
     Background:
-        Given I open the Dev1 client page
+        Given I open the OpenID Connect client page
 
-    Scenario: CBS login via the client
+    Scenario: CBS login via the OpenID Connect client
 
         And the element "Sign in with Sign-In Partner" is displayed
         And I click on the button "Sign in with Sign-In Partner"

@@ -1,12 +1,12 @@
 @saved @auth @units @GCKey
 
-Feature: CATSLAB - GCKey Login
+Feature: CATSLAB - GCKey Login via the OpenID Connect client
     Background:
         Given I have a saved username <gckey user>
         And I have a saved password <gckey password>
-        And I open the Dev1 client page
+        And I open the OpenID Connect client page
 
-    Scenario: GCKey login via the client
+    Scenario: GCKey login via the OpenID Connect client
 
         When the element "Sign in with GCKey" is displayed
         And I click on the button "Sign in with GCKey"
