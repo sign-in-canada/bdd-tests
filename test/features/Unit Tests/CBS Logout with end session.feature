@@ -19,4 +19,4 @@ Feature: CATSLAB - CBS Logout
         When I open the OpenID Connect end session page
         And I pause for 10s
         Then the url should contain "canada.ca" 
-        And the url should not contain "code="
+        #And the url should not contain "code="
