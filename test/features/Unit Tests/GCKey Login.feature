@@ -14,8 +14,9 @@ Feature: CATSLAB - GCKey Login via the OpenID Connect client
         And I set the inputfield "Username" to <gckey user>
         And I set the inputfield "Password" to <gckey password>
         And I should see "Sign In"
+        And I should have the cookie "JSESSIONID"
         And I click on the button "Sign In"
-        And I should see "Continue"
+        #And I should see "Continue"
         #And the element "Continue" is displayed
         #And I click on the button "_eventId_continue"
         #Then the url should contain "canada.ca"
