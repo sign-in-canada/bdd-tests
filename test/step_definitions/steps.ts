@@ -34,6 +34,10 @@ Then(/^the url should contain "?(.*?)"?$/, (what) => {
   I.seeInCurrentUrl(what);
 });
 
+Then(/^the url should not contain "?(.*?)"?$/, (what) => {
+  !I.seeInCurrentUrl(what);
+});
+
 When("I press the back button", () => {
   I.usePlaywrightTo(
     "go back",
