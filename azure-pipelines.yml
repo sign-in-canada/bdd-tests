@@ -24,8 +24,8 @@ steps:
 
 - script: |
     #CSP_HOST=_local npm run ci -- --grep @noauth
-    #CI=true npm run test-junit -- --grep @unit
-    npm run ci -- --grep @unit
+    CI=true npm run test-junit -- --grep @unit
+    #npm run ci -- --grep @unit
   displayName: 'Run tests'
   env:
    GCKEY_USER: $(GCKEY_USER)
