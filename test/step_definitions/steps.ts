@@ -68,10 +68,10 @@ When(/^I have a valid random GCKey password <(.*?)>/, (name) => {
 });
 
 When(/^I set the inputfield "(.*?)" to <(.*?)>/, async (field, name) => {
-  await I.click(SIC.locate(field));
-  await I.type(await I.getReference(name));
-  const password = await I.grabTextFrom('#token2');
-  console.log(name +  "val:" + await I.getReference(name));
+  //await I.click(SIC.locate(field));
+  //await I.type(await I.getReference(name));
+  console.log(name +  " val:" + await I.getReference(name));
+  await I.fillField(SIC.locate(field), await I.getReference(name));
 });
 
 When(
