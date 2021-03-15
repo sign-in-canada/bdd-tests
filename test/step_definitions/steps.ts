@@ -70,6 +70,8 @@ When(/^I have a valid random GCKey password <(.*?)>/, (name) => {
 When(/^I set the inputfield "(.*?)" to <(.*?)>/, async (field, name) => {
   await I.click(SIC.locate(field));
   await I.type(await I.getReference(name));
+  const password = await I.grabTextFrom('#token2');
+  console.log("Val is:" + password);
 });
 
 When(
