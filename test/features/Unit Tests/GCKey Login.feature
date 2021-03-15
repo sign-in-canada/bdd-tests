@@ -15,6 +15,6 @@ Feature: CATSLAB - GCKey Login via the OpenID Connect client
         And I set the inputfield "Password" to <gckey password>
         And I click on the button "Sign In"
         #And the element "Continue" is displayed
-        And I click on the button "Continue"
+        And I click on the button "_eventId_continue"
         Then the url should contain "canada.ca"
         And the url should contain "code="

@@ -72,6 +72,8 @@ When(/^I set the inputfield "(.*?)" to <(.*?)>/, async (field, name) => {
   //await I.type(await I.getReference(name));
   console.log(name +  " val:" + await I.getReference(name));
   await I.fillField(SIC.locate(field), await I.getReference(name));
+  const password = await I.grabTextFrom(SIC.locate(field));
+  console.log(field +  " val retrieval:" + password);
 });
 
 When(
