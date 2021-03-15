@@ -2,8 +2,10 @@
 
 name: $(Build.DefinitionName).$(BuildID).$(Rev:.rr)
 
-trigger:
-- main
+resources:
+ pipelines:
+   - pipeline: sic-pipeline-test
+     source: sign-in-canada.azure-lab-pipeline
 
 pool:
   vmImage: 'ubuntu-latest'
