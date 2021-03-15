@@ -17,5 +17,6 @@ Feature: CATSLAB - CBS Logout
 
         # Logging out using end session endpoint
         When I open the OpenID Connect end session page
+        And I pause for 10s
         Then the url should contain "canada.ca" 
         And the url should not contain "code="
