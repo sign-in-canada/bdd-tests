@@ -1,7 +1,9 @@
 const { setHeadlessWhen } = require('@codeceptjs/configure');
+const { setSharedCookies } = require('@codeceptjs/configure');
 
 setHeadlessWhen(process.env.CI);
-
+// share cookies between browser helpers and REST/GraphQL
+setSharedCookies();
 
 exports.config = {
   output: './output',
