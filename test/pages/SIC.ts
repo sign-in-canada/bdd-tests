@@ -12,6 +12,7 @@ const locators = {
   'QA chooser': 'https://qa-auth.id.alpha.canada.ca/oxauth/en/select.htm',
 //  'OpenID Connect client': 'https://dev3-auth.id.alpha.canada.ca/oxauth/restv1/authorize?response_type=code&client_id=032fca4e-cf81-4366-994e-b40f36c44ce7&scope=openid&redirect_uri=https%3A%2F%2Fwww.canada.ca%2Fen.html&state=123&nonce=456',
   'OpenID Connect client': 'https://qa-auth.id.alpha.canada.ca/oxauth/restv1/authorize?response_type=code&client_id=03af1a23-e2c6-4a96-80e4-e00377b56ab4&scope=openid&redirect_uri=https%3A%2F%2Fwww.canada.ca%2Fen.html&state=123&nonce=456',
+  'OpenID Connect end session': 'https://qa-auth.id.alpha.canada.ca/oxauth/restv1/end_session?post_logout_redirect_uri=https%3A%2F%2Fwww.canada.ca%2Fen.html',
 
   // end of pages
   'Level 2': '//*[@id="cn-left-col-inner"]/section/div/nav/form/section[1]/ul/li[2]/input',
