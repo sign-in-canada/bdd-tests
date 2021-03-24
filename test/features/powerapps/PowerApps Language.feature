@@ -5,13 +5,15 @@ Feature: CATSLAB - GCKey Login
         Given I have a saved username <gckey user>
         And I have a saved password <gckey password>
         And I open the PowerApps page
-        Then the url should contain "en-CA"
 
     Scenario: Keeps French language 
-        When I click on the link "English"
+        When the PowerApps navbar is expanded
+        And I click on the link "English"
         And I click on the link "Français"
         Then the url should contain "fr-CA"
-        And I should see "Se connecter"
+
+        When the PowerApps navbar is expanded
+        Then I should see "Se connecter"
         When I click on the link "Se connecter"
         Then I should see "Authenti-Canada"
         When I click on the button "Ouvrez une séance au moyen de votre cléGC"

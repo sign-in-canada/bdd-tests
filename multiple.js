@@ -17,7 +17,6 @@ const testGroups = workers.createGroupsOfSuites(1);
 const firefox = { browser: "firefox" };
 const chromium = { browser: "chromium" };
 const ublockPath = require('path').join(__dirname, 'extensions/ublock-origin/1.33.2_45');
-console.log(ublockPath);
 
 // https://github.com/microsoft/playwright/blob/17e953c2d8bd19ace20059ffaaa85f3f23cfb19d/src/server/deviceDescriptors.js
 const browsers = [
@@ -28,7 +27,7 @@ const browsers = [
   //{ ...chromium, emulate: devices["iPad (gen 7)"] },
   { ...chromium, emulate: devices["Pixel 2"] },
   // FIXME
-  // { ...chromium, args: [`--disable-extensions-except=${ublockPath}`, `--load-extension=${ublockPath}`] },
+  { ...chromium, args: [`--disable-extensions-except=${ublockPath}`, `--load-extension=${ublockPath}`] },
   //Extensions in Chrome / Chromium currently only work in non-headless mode
   { ...chromium, chromium: { headless: false, args: [`--disable-extensions-except=${ublockPath}`, `--load-extension=${ublockPath}`] } }
 ];
