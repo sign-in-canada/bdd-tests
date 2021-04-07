@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Navigator version</title>
+  </head>
+  <body>
+    <h1 id="about"></h1>
+  </body>
+</html>
+<script>
+  const tag = document.createElement("p");
+  const text = document.createTextNode(
+    JSON.stringify({
+      appVersion: navigator.appVersion,
+      width: window.screen.width,
+      height: window.screen.height,
+    })
+  );
+  tag.appendChild(text);
+  const element = document.getElementById("about");
+  element.appendChild(tag);
+</script>

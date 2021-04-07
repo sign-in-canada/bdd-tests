@@ -15,17 +15,16 @@ Feature: CATSLAB - GCKey Sign Up
         And I click on the link "Login"
         Then I should be on the RP simulator English chooser page
 
-        When I choose the SIC CSP
+        When I choose the SIC Signup CSP
         Then the element "Sign up with GCKey" is displayed
-        When I click on the button "Sign up with GCKey"
 
+        When I click on the button "Sign up with GCKey"
         ## GCKey Welcome Page
         Then I should see "Welcome to GCKey"
+        And I should see "Sign Up"
 
+        When I click on the visible link "Sign Up"
         ## GCKey Terms and Conditions page
-        When I click on the button "Sign Up"
-
-        ## GCKey Create Your Username page.
         Then I should see "1 of 4"
 
         When I click on the button "I accept"

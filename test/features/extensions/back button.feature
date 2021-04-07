@@ -6,8 +6,9 @@ Feature: CATSLAB - GCKey Login
         Then the url should contain "en-CA"
 
     Scenario: Back button @noauth
-        When I click on the link "Sign in"
-        Then I should be on the QA chooser page
+        When the PowerApps navbar is expanded
+        And I click on the link "Sign in"
+        Then I should be on the Production chooser page
         Then I should see "Sign In Canada"
 
         When I press the back button

@@ -1,14 +1,37 @@
+import { ElementHandle } from "playwright";
+
 const { I, SIC } = inject();
 const assert = require("assert");
+const tryTo = codeceptjs.container.plugins("tryTo");
+
 export {};
 
 Given(/^I open the (.*?) page$/, (page) => {
   I.amOnPage(SIC.locate(page));
 });
 
-When(/I click on the (link|checkbox|button) "(.*?)"/, (type, cb) => {
-  const what = SIC.locate(cb);
+When(/the PowerApps navbar is expanded/, async () => {
+  const visible = await tryTo(() => I.seeElement(".dropdown-toggle"));
+  // viewing small format
+  if (!visible) {
+    const toggle = ".navbar-toggle";
+    await I.click(toggle);
+  }
+});
+
+When(/I click on the (link|checkbox|button) "(.*?)"/, async (type, loc) => {
+  const what = SIC.locate(loc);
   I.click(what);
+});
+
+When(/I click on the visible (link|checkbox|button) "(.*?)"/, async (type, loc) => {
+  const vis: ElementHandle[] = await I.getElements(loc);
+  for (const v of vis) {
+    if (await v.isVisible()) {
+      v.click();
+      break;
+    }
+  }
 });
 
 Then(/^I should be on the (.*?) page$/, (page) => {
@@ -19,7 +42,7 @@ When(/^I choose the (.*?) CSP$/, (csp) => {
   const myCSP = SIC.locate(csp);
 
   if (myCSP === "_local") {
-  const local = "http://localhost:8080/Sign%20In.html";
+    const local = "http://localhost:8080/Sign%20In.html";
     return I.amOnPage(local);
   }
 
@@ -35,12 +58,9 @@ Then(/^the url should contain "?(.*?)"?$/, (what) => {
 });
 
 When("I press the back button", () => {
-  I.usePlaywrightTo(
-    "go back",
-    async ({ browser, context, page }) => {
-      await page.goBack({});
-    }
-  );
+  I.usePlaywrightTo("go back", async ({ browser, context, page }) => {
+    await page.goBack({});
+  });
 });
 
 Then(/^I should see "(.*?)"/, (what) => {
@@ -72,12 +92,9 @@ When(/^I set the inputfield "(.*?)" to <(.*?)>/, async (field, name) => {
   await I.type(await I.getReference(name));
 });
 
-When(
-  "I select the option with the text {string} for the element {string}",
-  (element, text) => {
-    I.selectOption(SIC.locate(text), element);
-  }
-);
+When("I select the option with the text {string} for the element {string}", (element, text) => {
+  I.selectOption(SIC.locate(text), element);
+});
 
 When("I set the inputfield {string} to {string}", (field, what) => {
   I.fillField(SIC.locate(field), what);
@@ -98,12 +115,10 @@ Then(/I should have the cookie "(.*?)"/, (name) => {
   I.seeCookie(name);
 });
 
-When('I open a new tab', () => {
+When("I open a new tab", () => {
   I.openNewTab();
 });
 
 //Then('I do a pause', () => {
 //  pause();
 //});
-
-
