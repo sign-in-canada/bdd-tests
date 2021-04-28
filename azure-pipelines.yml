@@ -1,4 +1,10 @@
 # Codeceptjs based BDD testing
+- task: SnykSecurityScan@0
+  inputs:
+    serviceConnectionEndpoint: 'snyk-sc'
+    testType: 'app'
+    monitorOnBuild: true
+    failOnIssues: true
 
 name: $(Build.DefinitionName).$(BuildID).$(Rev:.rr)
 
