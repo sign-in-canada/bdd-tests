@@ -13,7 +13,7 @@ pool:
 steps:
 - task: SnykSecurityScan@0
   inputs:
-    serviceConnectionEndpoint: 'snyk-sc'
+    serviceConnectionEndpoint: 'vid-snyk'
     testType: 'app'
     monitorOnBuild: true
     failOnIssues: true
