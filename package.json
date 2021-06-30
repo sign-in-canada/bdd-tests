@@ -3,8 +3,9 @@
   "version": "2.0.1",
   "description": "bdd tests for sign in canada",
   "scripts": {
-    "test": "haibun test/sic",
-    "sim-dev3": "http-server dev3"
+    "test": "haibun-cli test/sic",
+    "test-firefox": "HAIBUN_SPLIT_SHARED=a-browser=firefox haibun-cli test/sic",
+    "test-many": "HAIBUN_SPLIT_SHARED='a-browser=chromium,webkit,firefox,chromium.iPhone 6,chromium.iPad (gen 7) landscape,chromium.iPad Mini,chromium.Pixel 5,chromium.iPhone X landscape,chromium.Kindle Fire HDX,chromium.Moto G4 landscape' haibun-cli test/sic"
   },
   "keywords": [],
   "author": "vid",
@@ -13,6 +14,10 @@
     "http-server": "^0.12.3"
   },
   "dependencies": {
-    "haibun": "^0.0.4"
+    "@haibun/cli": "*",
+    "@haibun/core": "*",
+    "@haibun/server": "*",
+    "@haibun/web-playwright": "*",
+    "@haibun/out-xunit": "*"
   }
 }

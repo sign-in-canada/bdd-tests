@@ -1,0 +1,5 @@
+{
+  "mode": "all",
+  "steppers": ["~@haibun/web-playwright/build/web-playwright", "~@haibun/server/build/server","vars", "credentials", "haibun"],
+  "features": {}
+}
