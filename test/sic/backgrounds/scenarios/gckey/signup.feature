@@ -39,12 +39,12 @@ Feature: Create CATSLAB - GCKey Sign Up
 
         ## GCKey Create Your Recovery Questions, Answers and Hints page
 
-        When I select "What was my first pet's name?" for `Select a Recovery Question`
-        And I input "Fido" for "My Recovery Answer"
-        And I input "Also Fido" for "My Memorable Person"
-        And I input "dogsRpeople" for "My Memorable Person Hint"
-        And I input "2000-01-01" for "My Memorable Date"
-        And I input "Fido Day" for "My Memorable Date Hint"
+        When I select "What was my first pet's name?" for Select a Recovery Question
+        And I input "Fido" for My Recovery Answer
+        And I input "Also Fido" for My Memorable Person
+        And I input "dogsRpeople" for My Memorable Person Hint
+        And I input "2000-01-01" for My Memorable Date
+        And I input "Fido Day" for My Memorable Date Hint
         When I click `Continue`
         Then I should see "You have successfully created your GCKey."
 

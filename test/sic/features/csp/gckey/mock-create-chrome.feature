@@ -5,6 +5,7 @@ Tests connecting to the test relying party RP1, and mock creation of an account 
     When I open the rp1 page
     
   Scenarios: gckey/signup
+  Take a screenshot
 
 Run this test on its own using `node node_modules/haibun/build/cli test/sic/ gckey/mock`.
 
