@@ -7,6 +7,6 @@ Tests connecting to the test relying party RP1, and mock creation of an account 
   Scenarios: gckey/signup
   Take a screenshot
 
-Run this test on its own using `node node_modules/haibun/build/cli test/sic/ gckey/mock`.
+Run this test on its own using `npm test -- gckey/mock`.
 
 You can override the default browser (Chromium), or use multiple browsers by prepending `HAIBUN_SPLIT_SHARED=a-browser=webkit,firefox`.
