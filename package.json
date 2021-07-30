@@ -10,13 +10,11 @@
   "keywords": [],
   "author": "vid",
   "license": "ISC",
-  "devDependencies": {
-  },
   "dependencies": {
     "@haibun/cli": "*",
     "@haibun/core": "*",
-    "@haibun/server": "*",
-    "@haibun/web-playwright": "*",
-    "@haibun/out-xunit": "*"
+    "@haibun/out-xunit": "*",
+    "@haibun/web-playwright": "0.2.*",
+    "@haibun/web-server-express": "0.2.*"
   }
 }
