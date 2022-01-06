@@ -25,7 +25,8 @@ steps:
 - script: |
     #CSP_HOST=_local npm run ci -- --grep @noauth
     #CI=true npm run test-junit -- --grep @noauth
-    npm run test -- --grep "(?=.*@saml)(?=.*@logout)"
+    #npm run test -- --grep "(?=.*@saml)(?=.*@logout)"
+    CI=true, CSP_HOST=TST1 npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
 
   displayName: 'Run tests'
 
