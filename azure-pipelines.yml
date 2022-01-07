@@ -25,8 +25,7 @@ steps:
 
 - script: |
     $env:CI=true 
-    npm run test-junit -- --grep "(?=.*@saml)(?=.*@mustapha)"
-    dir C:\npm\cache\_logs
+    npm run test-junit -- --grep "(?=.*@GCKey)(?=.*@mustapha)"
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
