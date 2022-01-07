@@ -6,7 +6,7 @@ trigger:
 - main
 
 pool:
-  name: 'TBS Linux Self Hosted'
+  name: 'Hosted VS2017'
   vmImage: 'ubuntu-latest'
 
 steps:
