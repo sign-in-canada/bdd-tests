@@ -8,7 +8,6 @@ resources:
      source: sign-in-canada.azure-lab-pipeline
 
 pool:
-  name: 'Hosted VS2017'
   vmImage: 'ubuntu-latest'
 
 steps:
