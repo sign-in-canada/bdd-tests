@@ -6,7 +6,8 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'Hosted VS2017'
+  vmImage: 'windows-latest'
 
 steps:
 - task: NodeTool@0
@@ -23,10 +24,8 @@ steps:
 #  displayName: 'sim dev3'
 
 - script: |
-    #CSP_HOST=_local npm run ci -- --grep @noauth
-    #CI=true npm run test-junit -- --grep @noauth
-    #npm run test -- --grep "(?=.*@saml)(?=.*@logout)"
-    CI=true npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
+    $env:CI=true 
+    npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
