@@ -30,6 +30,9 @@ steps:
 
   displayName: 'Run tests'
 
+- script: |
+    cat /home/vsts/.npm/_logs/*
+  displayName: display all logs
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: JUnit
