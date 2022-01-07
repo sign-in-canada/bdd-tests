@@ -23,7 +23,7 @@ steps:
 #  displayName: 'sim dev3'
 
 - script: |
-    CI=true, CSP_HOST=TST1 npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
+    CI=true, CSP_HOST=TST1 npm run test-junit -- --grep "(?=.*@saml)(?=.*@mustapha)"
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
