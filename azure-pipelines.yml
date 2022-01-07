@@ -25,13 +25,9 @@ steps:
 
 - script: |
     $env:CI=true 
-    npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
+    npm run test-junit -- --grep "(?=.*@saml)(?=.*@mustapha)"
     dir C:\npm\cache\_logs
   displayName: 'Run tests'
-
-- script: |
-    cat /home/vsts/.npm/_logs/*
-  displayName: display all logs
 
 - task: PublishTestResults@2
   inputs:
