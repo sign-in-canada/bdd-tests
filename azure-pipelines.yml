@@ -25,7 +25,7 @@ steps:
 
 - script: |
     $env:CI=true 
-    npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
+    npm run test-junit -- --grep "(?=.*@saml)(?=.*@mustapha)"
   displayName: 'Run tests'
 
 - task: PublishTestResults@2
