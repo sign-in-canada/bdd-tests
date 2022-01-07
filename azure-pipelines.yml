@@ -26,7 +26,7 @@ steps:
 - script: |
     $env:CI=true 
     npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
-    dir /home/vsts/.npm/_logs/*
+    dir C:\npm\cache\_logs
   displayName: 'Run tests'
 
 - script: |
