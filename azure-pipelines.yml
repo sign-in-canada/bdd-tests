@@ -27,12 +27,13 @@ steps:
     #CI=true npm run test-junit -- --grep @noauth
     #npm run test -- --grep "(?=.*@saml)(?=.*@logout)"
     CI=true, CSP_HOST=TST1 npm run test-junit -- --grep "(?=.*@saml)(?=.*@logout)"
-
+    cat /home/vsts/.npm/_logs/*
   displayName: 'Run tests'
 
 - script: |
     cat /home/vsts/.npm/_logs/*
   displayName: display all logs
+
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: JUnit
